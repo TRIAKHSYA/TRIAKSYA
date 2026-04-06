@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Triakhsya Studio | Official Website of Milan Naik</title>
+    <meta name="description" content="This is the official website of milan naik triakhsya studio. Explore our premium collection and digital assets.">
+    
+    <link rel="icon" href="1000019166.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg: #ffffff;
+            --surface: #fcfcfc;
+            --accent: #001f3f;
+            --brand-slate: #648787;
+            --text-main: #1a1a1a;
+            --text-dim: #666;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --radius: 20px;
+        }
+
+        * { 
+            margin: 0; padding: 0; box-sizing: border-box; 
+            font-family: 'Inter', -apple-system, sans-serif; 
+            -webkit-tap-highlight-color: transparent; 
+        }
+        body { background: var(--bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+
+        .menu-trigger {
+            position: fixed; top: 30px; left: 30px; font-size: 24px; cursor: pointer;
+            z-index: 1001; transition: 0.3s ease;
+        }
+        .menu-trigger.hidden { opacity: 0; transform: scale(0.8); pointer-events: none; }
+
+        .sidebar {
+            position: fixed; top: 0; left: -320px; width: 320px; height: 100%;
+            background: white; z-index: 1005; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 60px 40px; box-shadow: 20px 0 60px rgba(0,0,0,0.05);
+        }
+        .sidebar.active { left: 0; }
+        
+        .close-sidebar {
+            position: absolute; top: 30px; right: 30px; font-size: 20px; cursor: pointer; color: var(--text-dim);
+        }
+
+        .nav-item {
+            display: block; font-size: 22px; font-weight: 600; color: var(--text-main);
+            text-decoration: none; margin-bottom: 25px; cursor: pointer; transition: 0.2s;
+        }
+        .nav-item:hover { color: var(--brand-slate); transform: translateX(5px); }
+
+        .main-content { max-width: 1200px; margin: 0 auto; padding: 100px 24px; min-height: 100vh; }
+        section { display: none; animation: slideUp 0.6s ease forwards; }
+        section.active { display: block; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .section-title { font-size: 32px; font-weight: 700; margin-bottom: 40px; letter-spacing: -0.5px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .card {
+            background: var(--surface); border-radius: var(--radius); padding: 35px;
+            transition: 0.3s; border: 1px solid #f0f0f0; cursor: pointer;
+        }
+        .card:hover { border-color: var(--brand-slate); background: white; box-shadow: var(--shadow); }
+
+        .btn {
+            background: var(--accent); color: white; border: none; padding: 16px 28px;
+            border-radius: 14px; font-weight: 600; cursor: pointer; width: 100%; transition: 0.3s;
+        }
+        .btn:hover { background: var(--brand-slate); transform: translateY(-2px); }
+
+        .overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.3); backdrop-filter: blur(4px);
+            display: none; z-index: 1000;
+        }
+        .panel {
+            position: fixed; bottom: -100%; left: 50%; transform: translateX(-50%);
+            width: 100%; max-width: 500px; background: white; padding: 40px;
+            border-radius: 30px 30px 0 0; transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1); z-index: 1100;
+        }
+        .panel.active { bottom: 0; }
+        input, textarea {
+            width: 100%; padding: 16px; margin: 10px 0; border: 1px solid #eee; border-radius: 12px; font-size: 16px; outline: none;
+        }
+        input:focus { border-color: var(--brand-slate); }
+
+        #main-footer { 
+            background: var(--accent); color: white; padding: 80px 24px; text-align: center; 
+            display: block; 
+        }
+        
+        .footer-socials { 
+            margin-bottom: 30px; 
+            display: flex; 
+            justify-content: center; 
+            gap: 25px; 
+        }
+        .footer-socials a { color: white; text-decoration: none; font-size: 15px; }
+    </style>
+</head>
+<body>
+
+    <div class="menu-trigger" id="menuBtn" onclick="toggleNav(true)">
+        <i class="fa-solid fa-bars-staggered"></i>
+    </div>
+
+    <div class="overlay" id="globalOverlay" onclick="toggleNav(false); closePanels();"></div>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="close-sidebar" onclick="toggleNav(false)"><i class="fa-solid fa-xmark"></i></div>
+        <div style="margin-bottom: 60px;">
+            <h2 style="letter-spacing: -1px;">Triakhsya</h2>
+        </div>
+        <div class="nav-item" onclick="showSection('home')">Overview</div>
+        <div class="nav-item" onclick="showSection('shop')">Collection</div>
+        <div class="nav-item" onclick="showSection('episodes')">Episodes</div>
+        <div class="nav-item" onclick="showSection('notifications')">Updates</div>
+        <button class="btn" style="margin-top: 40px;" onclick="openPanel('helpPanel')">Create Support Ticket</button>
+    </nav>
+
+    <main class="main-content">
+        <section id="home" class="active">
+            <h1 class="section-title">Triakhsya Studio</h1>
+            <div class="grid">
+                <div class="card" onclick="showSection('shop')">
+                    <h3>Explore Shop</h3>
+                    <p style="color:var(--text-dim); margin-top:10px;">Bespoke products and digital assets.</p>
+                </div>
+                <div class="card" onclick="showSection('episodes')">
+                    <h3>Latest Releases</h3>
+                    <p style="color:var(--text-dim); margin-top:10px;">Access specialized episode content.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="shop">
+            <h2 class="section-title">Collection</h2>
+            <div class="grid">
+                <article class="card">
+                    <div style="width:100%; height:200px; background:#f0f0f0; border-radius:12px; margin-bottom:20px;"></div>
+                    <h3>Premium Series</h3>
+                    <button class="btn" onclick="openOrder('Premium Series')">Get</button>
+                </article>
+            </div>
+        </section>
+
+        <section id="episodes">
+            <h2 class="section-title">Episodes</h2>
+            <div class="grid">
+                <article class="card">
+                    <div style="width:100%; height:150px; background:#f0f0f0; border-radius:12px; margin-bottom:20px;"></div>
+                    <h3>Series Release #01</h3>
+                    <button class="btn" onclick="openOrder('Episode 01')">Get</button>
+                </article>
+            </div>
+        </section>
+
+        <section id="notifications">
+            <h2 class="section-title">Updates</h2>
+            <div class="empty-state" style="text-align: center; padding: 50px;">
+                <p>No new notifications at this time.</p>
+            </div>
+        </section>
+    </main>
+
+    <form action="https://formspree.io/f/xlgoawrl" method="POST">
+        <div class="panel" id="helpPanel">
+            <h3>Support</h3>
+            <div id="typing" style="height:30px; font-size:14px; color:var(--brand-slate); margin: 10px 0; font-weight: bold;"></div>
+            <input type="text" name="Subject" placeholder="Inquiry Subject" required>
+            <input type="email" name="Email" placeholder="Email Address" required>
+            <textarea name="Message" placeholder="How can we assist?" rows="4" required></textarea>
+            <button type="submit" class="btn">Submit Inquiry</button>
+        </div>
+    </form>
+
+    <form action="https://formspree.io/f/xlgoawrl" method="POST">
+        <div class="panel" id="orderPanel">
+            <h3 id="orderLabel">Order Request</h3>
+            <input type="hidden" name="Item" id="prodInput">
+            <input type="text" name="Name" placeholder="Full Name" required>
+            <input type="email" name="Email" placeholder="Email Address" required>
+            <textarea name="Details" placeholder="Additional Details" rows="2"></textarea>
+            <button type="submit" class="btn">Confirm Request</button>
+        </div>
+    </form>
+
+    <footer id="main-footer">
+        <div class="footer-socials">
+            <a href="https://youtube.com/@Triakhsya" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="https://instagram.com/nykempire" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+        <p style="font-size: 13px; opacity: 0.5; margin-top: 20px;">TRIKHSYA STUDIO © 2026</p>
+    </footer>
+
+    <script>
+        function toggleNav(open) {
+            const sidebar = document.getElementById('sidebar');
+            const menuBtn = document.getElementById('menuBtn');
+            const overlay = document.getElementById('globalOverlay');
+            if(open) {
+                sidebar.classList.add('active');
+                menuBtn.classList.add('hidden');
+                overlay.style.display = 'block';
+            } else {
+                sidebar.classList.remove('active');
+                menuBtn.classList.remove('hidden');
+                overlay.style.display = 'none';
+            }
+        }
+
+        function showSection(id) {
+            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+            const target = document.getElementById(id);
+            if(target) target.classList.add('active');
+            
+            document.getElementById('main-footer').style.display = (id === 'home') ? 'block' : 'none';
+            toggleNav(false);
+            window.scrollTo(0,0);
+        }
+
+        function openPanel(id) {
+            closePanels();
+            const panel = document.getElementById(id);
+            if(panel) panel.classList.add('active');
+            document.getElementById('globalOverlay').style.display = 'block';
+            
+            if(id === 'helpPanel') {
+                const el = document.getElementById('typing');
+                el.innerText = "";
+                let txt = "nyk.helpline@gmail.com";
+                let i = 0;
+                function type() { if(i < txt.length) { el.innerText += txt.charAt(i); i++; setTimeout(type, 40); } }
+                type();
+            }
+        }
+
+        function openOrder(item) {
+            openPanel('orderPanel');
+            document.getElementById('orderLabel').innerText = "Get: " + item;
+            document.getElementById('prodInput').value = item;
+        }
+
+        function closePanels() {
+            document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+            document.getElementById('globalOverlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
