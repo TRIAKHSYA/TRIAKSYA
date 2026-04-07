@@ -5,9 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Triakhsya Studio | Official Website of Milan Naik</title>
-    <meta name="description" content="This is the official website of milan naik triakhsya studio. Explore our premium collection and digital assets.">
-    
-    <link rel="icon" href="1000019166.ico" type="image/x-icon">
+    <meta name="title" content="Triakhsya Studio | Official Website">
+    <meta name="description" content="Welcome to the official Triakhsya Studio website by Milan Naik. Explore premium character designs, digital assets, and the latest series episodes.">
+    <meta name="keywords" content="Triakhsya Studio, Milan Naik, Digital Assets, Character Design, Triakhsya Episodes">
+    <meta name="author" content="Milan Naik">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://triakhsya.github.io/">
+    <meta property="og:site_name" content="Triakhsya Studio">
+    <meta property="og:title" content="Triakhsya Studio | Official Website">
+    <meta property="og:description" content="Explore premium collections and digital assets from Triakhsya Studio.">
+    <meta property="og:image" content="https://triakhsya.github.io/logo.png">
+
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="logo.png">
+
+    <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "WebSite",
+      "name" : "Triakhsya Studio",
+      "alternateName" : "Triakhsya",
+      "url" : "https://triakhsya.github.io/",
+      "author": {
+        "@type": "Person",
+        "name": "Milan Naik"
+      }
+    }
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
@@ -27,11 +54,12 @@
             font-family: 'Inter', -apple-system, sans-serif; 
             -webkit-tap-highlight-color: transparent; 
         }
+        
         body { background: var(--bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
 
         .menu-trigger {
             position: fixed; top: 30px; left: 30px; font-size: 24px; cursor: pointer;
-            z-index: 1001; transition: 0.3s ease;
+            z-index: 1001; transition: 0.3s ease; color: var(--accent);
         }
         .menu-trigger.hidden { opacity: 0; transform: scale(0.8); pointer-events: none; }
 
@@ -86,20 +114,16 @@
         input, textarea {
             width: 100%; padding: 16px; margin: 10px 0; border: 1px solid #eee; border-radius: 12px; font-size: 16px; outline: none;
         }
-        input:focus { border-color: var(--brand-slate); }
 
-        #main-footer { 
-            background: var(--accent); color: white; padding: 80px 24px; text-align: center; 
-            display: block; 
-        }
-        
+        #main-footer { background: var(--accent); color: white; padding: 80px 24px; text-align: center; }
         .footer-socials { 
-            margin-bottom: 30px; 
-            display: flex; 
-            justify-content: center; 
-            gap: 25px; 
+            margin-bottom: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; 
         }
-        .footer-socials a { color: white; text-decoration: none; font-size: 15px; }
+        .footer-socials a { 
+            color: white; text-decoration: none; font-weight: 500; font-size: 15px; 
+            display: inline-flex; align-items: center; white-space: nowrap; 
+        }
+        .footer-socials i { margin-right: 8px; font-size: 18px; }
     </style>
 </head>
 <body>
@@ -108,21 +132,21 @@
         <i class="fa-solid fa-bars-staggered"></i>
     </div>
 
-    <div class="overlay" id="globalOverlay" onclick="toggleNav(false); closePanels();"></div>
+    <div class="overlay" id="globalOverlay" onclick="closeEverything()"></div>
 
     <nav class="sidebar" id="sidebar">
         <div class="close-sidebar" onclick="toggleNav(false)"><i class="fa-solid fa-xmark"></i></div>
         <div style="margin-bottom: 60px;">
-            <h2 style="letter-spacing: -1px;">Triakhsya</h2>
+            <h2 style="letter-spacing: -1px; color: var(--accent);">Triakhsya Studio</h2>
         </div>
         <div class="nav-item" onclick="showSection('home')">Overview</div>
         <div class="nav-item" onclick="showSection('shop')">Collection</div>
         <div class="nav-item" onclick="showSection('episodes')">Episodes</div>
         <div class="nav-item" onclick="showSection('notifications')">Updates</div>
-        <button class="btn" style="margin-top: 40px;" onclick="openPanel('helpPanel')">Create Support Ticket</button>
+        <button class="btn" style="margin-top: 40px;" onclick="openPanel('helpPanel')">Get Support</button>
     </nav>
 
-    <main class="main-content">
+    <div class="main-content">
         <section id="home" class="active">
             <h1 class="section-title">Triakhsya Studio</h1>
             <div class="grid">
@@ -140,39 +164,41 @@
         <section id="shop">
             <h2 class="section-title">Collection</h2>
             <div class="grid">
-                <article class="card">
-                    <div style="width:100%; height:200px; background:#f0f0f0; border-radius:12px; margin-bottom:20px;"></div>
+                <div class="card">
+                    <div style="width:100%; height:200px; background:#f0f0f0; border-radius:12px; margin-bottom:20px; display:flex; align-items:center; justify-content:center;">
+                        <img src="logo.png" alt="Triakhsya Studio Logo" style="height:60px; opacity:0.3;">
+                    </div>
                     <h3>Premium Series</h3>
                     <button class="btn" onclick="openOrder('Premium Series')">Get</button>
-                </article>
+                </div>
             </div>
         </section>
 
         <section id="episodes">
             <h2 class="section-title">Episodes</h2>
             <div class="grid">
-                <article class="card">
+                <div class="card">
                     <div style="width:100%; height:150px; background:#f0f0f0; border-radius:12px; margin-bottom:20px;"></div>
                     <h3>Series Release #01</h3>
-                    <button class="btn" onclick="openOrder('Episode 01')">Get</button>
-                </article>
+                    <button class="btn" onclick="openRequest('01')">Get</button>
+                </div>
             </div>
         </section>
 
         <section id="notifications">
             <h2 class="section-title">Updates</h2>
-            <div class="empty-state" style="text-align: center; padding: 50px;">
+            <div style="text-align: center; padding: 60px; color: var(--text-dim); background: #fafafa; border-radius: 20px;">
+                <i class="fa-regular fa-bell" style="font-size: 30px; margin-bottom: 15px; display: block;"></i>
                 <p>No new notifications at this time.</p>
             </div>
         </section>
-    </main>
+    </div>
 
     <form action="https://formspree.io/f/xlgoawrl" method="POST">
         <div class="panel" id="helpPanel">
             <h3>Support</h3>
             <div id="typing" style="height:30px; font-size:14px; color:var(--brand-slate); margin: 10px 0; font-weight: bold;"></div>
             <input type="text" name="Subject" placeholder="Inquiry Subject" required>
-            <input type="email" name="Email" placeholder="Email Address" required>
             <textarea name="Message" placeholder="How can we assist?" rows="4" required></textarea>
             <button type="submit" class="btn">Submit Inquiry</button>
         </div>
@@ -180,21 +206,23 @@
 
     <form action="https://formspree.io/f/xlgoawrl" method="POST">
         <div class="panel" id="orderPanel">
-            <h3 id="orderLabel">Order Request</h3>
-            <input type="hidden" name="Item" id="prodInput">
+            <h3 id="orderLabel">Order Form</h3>
+            <input type="hidden" name="Product" id="prodInput">
             <input type="text" name="Name" placeholder="Full Name" required>
+            <input type="text" name="Address" placeholder="Full Address + Pincode" required>
+            <input type="number" name="Phone" placeholder="Mobile Number" required>
             <input type="email" name="Email" placeholder="Email Address" required>
-            <textarea name="Details" placeholder="Additional Details" rows="2"></textarea>
             <button type="submit" class="btn">Confirm Request</button>
         </div>
     </form>
 
     <footer id="main-footer">
         <div class="footer-socials">
-            <a href="https://youtube.com/@Triakhsya" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
-            <a href="https://instagram.com/nykempire" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://youtube.com/@TriakhsyaStudio"><i class="fab fa-youtube"></i>YouTube</a>
+            <a href="https://www.instagram.com/nykempire"><i class="fab fa-instagram"></i>Instagram</a>
+            <a href="https://discord.gg/P3z8gaevjY"><i class="fab fa-discord"></i>Discord</a>
         </div>
-        <p style="font-size: 13px; opacity: 0.5; margin-top: 20px;">TRIKHSYA STUDIO © 2026</p>
+        <p style="font-size: 13px; opacity: 0.5;">TRIAKHSYA STUDIO © 2026. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <script>
@@ -215,40 +243,44 @@
 
         function showSection(id) {
             document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-            const target = document.getElementById(id);
-            if(target) target.classList.add('active');
-            
+            document.getElementById(id).classList.add('active');
             document.getElementById('main-footer').style.display = (id === 'home') ? 'block' : 'none';
             toggleNav(false);
             window.scrollTo(0,0);
         }
 
         function openPanel(id) {
-            closePanels();
-            const panel = document.getElementById(id);
-            if(panel) panel.classList.add('active');
+            closeEverything();
+            document.getElementById(id).classList.add('active');
             document.getElementById('globalOverlay').style.display = 'block';
-            
             if(id === 'helpPanel') {
                 const el = document.getElementById('typing');
                 el.innerText = "";
                 let txt = "nyk.helpline@gmail.com";
                 let i = 0;
-                function type() { if(i < txt.length) { el.innerText += txt.charAt(i); i++; setTimeout(type, 40); } }
+                function type() { if(i < txt.length) { el.innerText += txt.charAt(i); i++; setTimeout(type, 50); } }
                 type();
             }
         }
 
         function openOrder(item) {
             openPanel('orderPanel');
-            document.getElementById('orderLabel').innerText = "Get: " + item;
+            document.getElementById('orderLabel').innerText = item;
             document.getElementById('prodInput').value = item;
         }
 
-        function closePanels() {
+        function openRequest(num) {
+            openPanel('orderPanel');
+            document.getElementById('orderLabel').innerText = "Request Episode #" + num;
+            document.getElementById('prodInput').value = "Episode Request: " + num;
+        }
+
+        function closeEverything() {
             document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
             document.getElementById('globalOverlay').style.display = 'none';
+            toggleNav(false);
         }
     </script>
 </body>
-</html>
+    </html>
+        
